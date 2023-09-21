@@ -1,0 +1,23 @@
+{
+  "extends": "@rocketseat/eslint-config/react",
+  "rules": {
+    "eslint-disable-next-line react/no-children-prop": "off",
+    "no-console": "error",
+    "react-hooks/exhaustive-deps": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "interface",
+        "format": [
+          "PascalCase"
+        ],
+        "custom": {
+          "regex": "^I[A-Z]",
+          "match": true
+        }
+      }
+    ]
+  }
+}

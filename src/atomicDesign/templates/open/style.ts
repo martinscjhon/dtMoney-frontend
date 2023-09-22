@@ -28,6 +28,23 @@ export const PrincipalContainer = styled.main`
 export const Layout = styled.section`
   display: grid;
   grid-template-columns: 60% 40%;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 2rem;
+
+  img {
+    animation: imageHome 0.9s cubic-bezier(0.215, 0.46, 0.45, 0.94);
+  }
+
+  form {
+    margin-top: 5rem;
+  }
+
+  @keyframes imageHome {
+    0% {
+      transform: translateX(-1000px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
 `

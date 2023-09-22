@@ -11,12 +11,8 @@ export const Form = styled.form`
     justify-content: center;
     flex-direction: column;
 
-    button:nth-child(2) {
-      margin-top: 1rem;
-    }
-
-    button:nth-child(3) {
-      text-decoration: underline;
+    button:nth-child(1) {
+      margin-bottom: 1rem;
     }
   }
 `

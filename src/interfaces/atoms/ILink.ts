@@ -4,4 +4,5 @@ export interface ILink {
   size: string
   weight: number
   title: string
+  decoration?: boolean
 }

@@ -3,9 +3,21 @@ import { ContainerStyle } from './style'
 import { ILink } from '../../../interfaces/atoms/ILink'
 import { Link } from 'react-router-dom'
 
-const LinkBase: FC<ILink> = ({ color, size, href, weight, title }) => {
+const LinkBase: FC<ILink> = ({
+  color,
+  size,
+  href,
+  weight,
+  title,
+  decoration = true,
+}) => {
   return (
-    <ContainerStyle color={color} size={size} weight={weight}>
+    <ContainerStyle
+      color={color}
+      size={size}
+      weight={weight}
+      decoration={decoration}
+    >
       <Link to={href}>{title}</Link>
     </ContainerStyle>
   )

@@ -6,7 +6,7 @@ export interface ITitle {
   weight: number
 }
 
-export const Title = styled.h1<ITitle>`
+export const TitleStyle = styled.h1<ITitle>`
   color: ${(props) => props.color};
   font: ${(props) => props.weight} ${(props) => props.size} var(--font);
 `

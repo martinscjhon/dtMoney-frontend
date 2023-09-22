@@ -1,6 +1,6 @@
 import { forwardRef, ForwardRefRenderFunction } from 'react'
 import { IInput } from '../../../interfaces/atoms'
-import { Container, InputStyle, PrincipalContainer } from './style'
+import { ContainerStyle, InputStyle, PrincipalContainerStyle } from './style'
 import { LabelComponent } from '../label'
 import { ButtonComponent } from '../button'
 
@@ -20,9 +20,9 @@ export const Input: ForwardRefRenderFunction<HTMLInputElement, IInput> = (
   ref,
 ) => {
   return (
-    <PrincipalContainer>
+    <PrincipalContainerStyle>
       <LabelComponent htmlFor={htmlFor} title={label} />
-      <Container>
+      <ContainerStyle>
         <InputStyle
           {...rest}
           disabled={disabled}
@@ -46,8 +46,8 @@ export const Input: ForwardRefRenderFunction<HTMLInputElement, IInput> = (
             type="button"
           />
         )}
-      </Container>
-    </PrincipalContainer>
+      </ContainerStyle>
+    </PrincipalContainerStyle>
   )
 }
 

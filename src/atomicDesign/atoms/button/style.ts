@@ -8,7 +8,7 @@ interface IButton {
   color: string
 }
 
-export const Button = styled.button<IButton>`
+export const ButtonStyle = styled.button<IButton>`
   background: ${(props) => props.backgorund};
   width: ${(props) => props.width};
   height: ${(props) => props.height};

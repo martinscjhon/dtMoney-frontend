@@ -5,6 +5,7 @@ import { colors } from '../../styles/colors'
 import { InputComponent } from '../atoms/input'
 import { ButtonComponent } from '../atoms/button'
 import { Icone } from '../atoms/icone'
+import { LinkComponent } from '../atoms/link'
 
 export const FormLogin: FC = () => {
   const [viewPassword, setViewPassword] = useState<boolean>(false)
@@ -56,13 +57,12 @@ export const FormLogin: FC = () => {
           weight={500}
         />
 
-        <ButtonComponent
-          title={'Crie uma conta'}
+        <LinkComponent
+          href={''}
           color={colors.purple[200]}
-          backgorund={'transparent'}
-          width={'100%'}
-          height={'1.5rem'}
+          size={'11px'}
           weight={500}
+          title={'Crie uma conta'}
         />
 
         <ButtonComponent

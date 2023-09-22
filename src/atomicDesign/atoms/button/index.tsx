@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { IButton } from '../../../interfaces/atoms'
-import { Button } from './style'
+import { ButtonStyle } from './style'
 
 export const ButtonComponent: FC<IButton> = ({
   title,
@@ -11,7 +11,7 @@ export const ButtonComponent: FC<IButton> = ({
   color,
   ...rest
 }) => (
-  <Button
+  <ButtonStyle
     {...rest}
     backgorund={backgorund}
     height={height}
@@ -20,5 +20,5 @@ export const ButtonComponent: FC<IButton> = ({
     color={color}
   >
     {title}
-  </Button>
+  </ButtonStyle>
 )

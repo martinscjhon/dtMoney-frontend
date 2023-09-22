@@ -1,9 +1,9 @@
 import { FC, memo } from 'react'
-import { Label } from './style'
+import { LabelStyle } from './style'
 import { ILabel } from '../../../interfaces/atoms'
 
-export const LabelBase: FC<ILabel> = ({ htmlFor, title }) => {
-  return <Label htmlFor={htmlFor}>{title}</Label>
+const LabelBase: FC<ILabel> = ({ htmlFor, title }) => {
+  return <LabelStyle htmlFor={htmlFor}>{title}</LabelStyle>
 }
 
 export const LabelComponent = memo(

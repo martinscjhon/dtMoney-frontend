@@ -36,7 +36,7 @@ export const Layout = styled.section`
   }
 
   form {
-    margin-top: 5rem;
+    margin-top: 20%;
   }
 
   @keyframes imageHome {

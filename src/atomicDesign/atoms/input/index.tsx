@@ -3,6 +3,8 @@ import { IInput } from '../../../interfaces/atoms'
 import { ContainerStyle, InputStyle, PrincipalContainerStyle } from './style'
 import { LabelComponent } from '../label'
 import { ButtonComponent } from '../button'
+import { TextComponent } from '../text'
+import { colors } from '../../../styles/colors'
 
 export const Input: ForwardRefRenderFunction<HTMLInputElement, IInput> = (
   {
@@ -10,6 +12,7 @@ export const Input: ForwardRefRenderFunction<HTMLInputElement, IInput> = (
     htmlFor,
     type,
     value,
+    messageError,
     name,
     disabled = false,
     iconExist = false,
@@ -47,6 +50,14 @@ export const Input: ForwardRefRenderFunction<HTMLInputElement, IInput> = (
           />
         )}
       </ContainerStyle>
+      {messageError && (
+        <TextComponent
+          title={messageError}
+          color={colors.red[500]}
+          size={'12px'}
+          weight={400}
+        />
+      )}
     </PrincipalContainerStyle>
   )
 }

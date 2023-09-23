@@ -9,10 +9,10 @@ export const GlobalStyle = createGlobalStyle`
         --gray-200: #929292;
         --gray-100: #D9D9D9;
 
-        --border-radius-button: 3px;      
-        --border-radius-input: 4px;  
+        --border-radius-button: 4px;      
+        --border-radius-input: 5px;  
 
-        --size-button: 10px;                    
+        --size-button: 12px;                    
 
         --font: "Poppins";        
     }

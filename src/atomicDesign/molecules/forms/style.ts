@@ -20,7 +20,17 @@ export const Form = styled.form`
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 1rem;
   margin-top: 1.5rem;
   margin-bottom: 1.8rem;
+`
+export const ContainerPassword = styled.div`
+  position: relative;
+  margin-top: 0.5rem;
+
+  a {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 `

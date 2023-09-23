@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { Environment } from '../config'
-import { getToken } from '../auth'
+import { getToken, logout } from '../auth'
 
 export const openApi = axios.create({
   baseURL: Environment.Api,
@@ -22,5 +22,14 @@ privateApi.interceptors.request.use(
   },
   (error) => {
     Promise.reject(error)
+  },
+)
+
+privateApi.interceptors.response.use(
+  (response) => {
+    return response
+  },
+  function (error) {
+    if (error.response?.status === 401) logout()
   },
 )

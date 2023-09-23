@@ -1,40 +1,38 @@
 import { ChangeEvent, FC, useState } from 'react'
 import { Container, Form } from './style'
-import { TitleComponent } from '../atoms/title'
-import { colors } from '../../styles/colors'
-import { InputComponent } from '../atoms/input'
-import { ButtonComponent } from '../atoms/button'
-import { Icone } from '../atoms/icone'
-import { LinkComponent } from '../atoms/link'
+import { TitleComponent } from '../../atoms/title'
+import { colors } from '../../../styles/colors'
+import { InputComponent } from '../../atoms/input'
+import { ButtonComponent } from '../../atoms/button'
+import { Icone } from '../../atoms/icone'
+import { LinkComponent } from '../../atoms/link'
 
-export const FormLogin: FC = () => {
+export const FormResetPassword: FC = () => {
   const [viewPassword, setViewPassword] = useState<boolean>(false)
   const [value, setValue] = useState<string>('')
 
   return (
     <Form>
       <TitleComponent
-        title={'Faça seu login'}
-        size={'1rem'}
+        title={'Crie uma nova senha'}
+        size={'1.1rem'}
         color={colors.basic._000}
         weight={600}
       />
 
       <Container>
         <InputComponent
-          label={'E-mail'}
+          label={'Senha'}
           htmlFor={''}
           type={''}
-          isError={null}
           value={''}
           name={''}
         />
 
         <InputComponent
-          label={'Senha'}
+          label={'Confirme sua senha'}
           htmlFor={''}
           type={viewPassword ? 'text' : 'password'}
-          isError={null}
           messageError={''}
           value={value}
           name={''}
@@ -49,7 +47,7 @@ export const FormLogin: FC = () => {
 
       <div className="actions">
         <ButtonComponent
-          title={'Entrar'}
+          title={'Salvar'}
           color={colors.basic._fff}
           backgorund={colors.purple[300]}
           width={'60%'}
@@ -58,21 +56,12 @@ export const FormLogin: FC = () => {
         />
 
         <LinkComponent
-          href={'/criar/conta'}
-          color={colors.purple[200]}
-          size={'10px'}
-          weight={500}
-          title={'Crie uma conta'}
-          decoration={false}
-        />
-
-        <LinkComponent
-          href={'/esqueci/senha'}
+          href={'/'}
           color={colors.gray[200]}
           size={'10px'}
           weight={500}
-          title={'Esqueci minha senha'}
-          decoration={true}
+          title={'Voltar'}
+          decoration={false}
         />
       </div>
     </Form>

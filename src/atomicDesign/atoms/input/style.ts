@@ -20,11 +20,11 @@ export const ContainerStyle = styled.div`
 
 export const InputStyle = styled.input`
   width: 100%;
-  height: 1.6rem;
+  height: 1.9rem;
   padding: 0.438rem 0.5rem;
   line-height: 1.45;
-  font-size: 11px;
-  font-weight: 300;
+  font-size: 13px;
+  font-weight: 400;
   font-family: var(--font);
   background-color: var(--bg-input);
   outline: none;

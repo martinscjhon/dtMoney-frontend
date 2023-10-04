@@ -7,5 +7,6 @@ export const endpoint = {
   },
   user: {
     create: `${routeUser}/create`,
+    info: `${routeUser}/info`,
   },
 }

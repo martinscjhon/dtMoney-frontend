@@ -20,7 +20,7 @@ export const OpenTemplate: FC = () => {
         pauseOnHover={false}
       />
 
-      <ImageComponent option={'logo-black'} height={'auto'} width={'7rem'} />
+      <ImageComponent option={'logo-black'} height={'auto'} width={'9rem'} />
       <div className="ball top"></div>
       <div className="ball bottom"></div>
       <Layout>

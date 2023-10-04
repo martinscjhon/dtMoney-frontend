@@ -12,6 +12,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Messages } from '../../../common/message'
 import { toast } from 'react-toastify'
 import { handleUser } from '../../../services/handles'
+import { Navigate } from 'react-router-dom'
 
 const createUserFormSchema = z.object({
   Email: z
@@ -26,6 +27,8 @@ type CreateUSerFormData = z.infer<typeof createUserFormSchema>
 
 export const FormCreateAccount: FC = () => {
   const [viewPassword, setViewPassword] = useState<boolean>(false)
+  const [redirect, setRedirect] = useState<boolean>(false)
+  const [url, setUrl] = useState<string>('')
   const {
     register,
     handleSubmit,
@@ -38,7 +41,9 @@ export const FormCreateAccount: FC = () => {
     await handleUser
       .insert(data)
       .then(() => {
-        return toast.success(Messages.SuccessCreateUser)
+        toast.success(Messages.SuccessCreateUser)
+        setRedirect(true)
+        setUrl('/')
       })
       .catch((error) => {
         toast.error(error?.message)
@@ -46,63 +51,66 @@ export const FormCreateAccount: FC = () => {
   }
 
   return (
-    <Form onSubmit={handleSubmit(createUser)}>
-      <TitleComponent
-        title={'Crie sua conta'}
-        size={'1.1rem'}
-        color={colors.basic._000}
-        weight={600}
-      />
-
-      <Container>
-        <InputComponent
-          label={'Nome completo'}
-          htmlFor={''}
-          type={''}
-          messageError={errors.Name?.message}
-          {...register('Name')}
+    <>
+      {redirect ? <Navigate to={url} /> : <></>}
+      <Form onSubmit={handleSubmit(createUser)}>
+        <TitleComponent
+          title={'Crie sua conta'}
+          size={'1.3rem'}
+          color={colors.basic._000}
+          weight={600}
         />
 
-        <InputComponent
-          label={'E-mail'}
-          htmlFor={''}
-          type={''}
-          messageError={errors.Email?.message}
-          {...register('Email')}
-        />
+        <Container>
+          <InputComponent
+            label={'Nome completo'}
+            htmlFor={''}
+            type={''}
+            messageError={errors.Name?.message}
+            {...register('Name')}
+          />
 
-        <InputComponent
-          label={'Senha'}
-          htmlFor={''}
-          type={viewPassword ? 'text' : 'password'}
-          iconExist={true}
-          onClickButton={() => setViewPassword(!viewPassword)}
-          icon={viewPassword ? Icone.ViewPassword : Icone.PasswordSecret}
-          messageError={errors.Password?.message}
-          {...register('Password')}
-        />
-      </Container>
+          <InputComponent
+            label={'E-mail'}
+            htmlFor={''}
+            type={''}
+            messageError={errors.Email?.message}
+            {...register('Email')}
+          />
 
-      <div className="actions">
-        <ButtonComponent
-          title={'Criar conta'}
-          color={colors.basic._fff}
-          backgorund={colors.purple[300]}
-          width={'60%'}
-          height={'1.5rem'}
-          weight={500}
-          type="submit"
-        />
+          <InputComponent
+            label={'Senha'}
+            htmlFor={''}
+            type={viewPassword ? 'text' : 'password'}
+            iconExist={true}
+            onClickButton={() => setViewPassword(!viewPassword)}
+            icon={viewPassword ? Icone.ViewPassword : Icone.PasswordSecret}
+            messageError={errors.Password?.message}
+            {...register('Password')}
+          />
+        </Container>
 
-        <LinkComponent
-          href={'/'}
-          color={colors.gray[200]}
-          size={'12px'}
-          weight={500}
-          title={'Voltar'}
-          decoration={false}
-        />
-      </div>
-    </Form>
+        <div className="actions">
+          <ButtonComponent
+            title={'Criar conta'}
+            color={colors.basic._fff}
+            backgorund={colors.purple[300]}
+            width={'60%'}
+            height={'1.5rem'}
+            weight={500}
+            type="submit"
+          />
+
+          <LinkComponent
+            href={'/'}
+            color={colors.gray[200]}
+            size={'12px'}
+            weight={500}
+            title={'Voltar'}
+            decoration={false}
+          />
+        </div>
+      </Form>
+    </>
   )
 }

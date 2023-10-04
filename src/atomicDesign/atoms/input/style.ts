@@ -13,7 +13,7 @@ export const ContainerStyle = styled.div`
   button {
     position: absolute;
     right: 1rem;
-    top: 4px;
+    top: 7px;
     color: var(--dark);
   }
 `
@@ -38,7 +38,7 @@ export const InputStyle = styled.input`
     box-shadow 0.15s ease-in-out;
 
   ::placeholder {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 200;
   }
 

@@ -4,6 +4,7 @@ import { OpenTemplate } from '../atomicDesign/templates/open'
 import { LoginTemplate } from '../atomicDesign/templates/login'
 import { CreateAccountTemplate } from '../atomicDesign/templates/createAccount'
 import { ResetPasswordTemplate } from '../atomicDesign/templates/resetPassword'
+import { HomeTemplate } from '../atomicDesign/templates/home'
 
 export const AllRoutes: FC = () => {
   return (
@@ -13,6 +14,8 @@ export const AllRoutes: FC = () => {
         <Route path={'/criar/conta'} element={<CreateAccountTemplate />} />
         <Route path={'/esqueci/senha'} element={<ResetPasswordTemplate />} />
       </Route>
+
+      <Route path={'/home'} element={<HomeTemplate />} />
     </Routes>
   )
 }

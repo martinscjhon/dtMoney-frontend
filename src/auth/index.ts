@@ -1,8 +1,8 @@
-import { delStorage, getStorage } from '../common/storage'
+import { detLocalstorage, getLocalstorage } from '../common/storage'
 
-export const getToken = () => getStorage('token')
+export const getToken = () => getLocalstorage('token')
 
 export const logout = () => {
-  delStorage('token')
+  detLocalstorage('token')
   window.location.href = '/'
 }

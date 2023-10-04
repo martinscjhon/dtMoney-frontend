@@ -15,7 +15,7 @@ export const FormResetPassword: FC = () => {
     <Form>
       <TitleComponent
         title={'Crie uma nova senha'}
-        size={'1.1rem'}
+        size={'1.3rem'}
         color={colors.basic._000}
         weight={600}
       />

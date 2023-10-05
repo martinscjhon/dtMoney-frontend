@@ -5,10 +5,10 @@ import { endpoint } from '../endpoints'
 const info = async () => {
   try {
     const url = endpoint.user.create
-    const { data } = await privateApi.get(url)
-    return data.response.body
+    const response = await privateApi.get(url)
+    return response
   } catch (error: any) {
-    throw new Error(error.response.data.message)
+    return error
   }
 }
 

@@ -6,7 +6,8 @@ const send = async (payload: ILogin) => {
   try {
     const url = endpoint.login.authentication
     const { data } = await openApi.post(url, payload)
-    return data.response.body
+
+    return data?.body
   } catch (error: any) {
     throw new Error(error.response.data.message)
   }

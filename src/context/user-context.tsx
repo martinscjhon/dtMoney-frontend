@@ -5,8 +5,7 @@ import {
   useEffect,
   useState,
 } from 'react'
-import { IInfoUser } from '../interfaces/services'
-import { handleUser } from '../services/handles'
+import { getLocalstorage } from '../common/storage'
 
 interface IProvider {
   children: ReactNode
@@ -15,18 +14,22 @@ interface IProvider {
 const ControlUserContext = createContext({})
 
 async function getInitialState() {
-  await handleUser.info().then((res: IInfoUser) => {
-    return res
-  })
+  const user = getLocalstorage('user')
+
+  return user
 }
 
 export function ControlUserProvider({ children }: IProvider) {
   const [controlUser, setControlUser] = useState<any>(getInitialState)
 
+  const handleUser = () => {
+    const user: any = getLocalstorage('user')
+
+    setControlUser(user)
+  }
+
   useEffect(() => {
-    if (!controlUser) {
-      getInitialState()
-    }
+    handleUser()
   }, [controlUser])
 
   return (

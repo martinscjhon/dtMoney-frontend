@@ -13,6 +13,7 @@ import { Messages } from '../../../common/message'
 import { toast } from 'react-toastify'
 import { handleUser } from '../../../services/handles'
 import { Navigate } from 'react-router-dom'
+import { ICreateAccount } from '../../../interfaces/services'
 
 const createUserFormSchema = z.object({
   Email: z
@@ -37,7 +38,7 @@ export const FormCreateAccount: FC = () => {
     resolver: zodResolver(createUserFormSchema),
   })
 
-  const createUser = async (data: any) => {
+  const createUser = async (data: ICreateAccount) => {
     await handleUser
       .insert(data)
       .then(() => {

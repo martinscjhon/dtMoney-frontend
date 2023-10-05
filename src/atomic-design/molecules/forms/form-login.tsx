@@ -14,6 +14,8 @@ import { handleAuth } from '../../../services/handles'
 import { setLocalstorage } from '../../../common/storage'
 import { toast } from 'react-toastify'
 import { Navigate } from 'react-router-dom'
+import { IInfoUser, ILogin } from '../../../interfaces/services'
+import { useControlUser } from '../../../context/user-context'
 
 const loginFormSchema = z.object({
   Email: z
@@ -26,6 +28,7 @@ const loginFormSchema = z.object({
 type LoginFormData = z.infer<typeof loginFormSchema>
 
 export const FormLogin: FC = () => {
+  const { setControlUser } = useControlUser()
   const [viewPassword, setViewPassword] = useState<boolean>(false)
   const [redirect, setRedirect] = useState<boolean>(false)
   const [url, setUrl] = useState<string>('')
@@ -37,13 +40,21 @@ export const FormLogin: FC = () => {
     resolver: zodResolver(loginFormSchema),
   })
 
-  const SendLogin = async (data: any) => {
+  const SendLogin = async (data: ILogin) => {
     await handleAuth
       .send(data)
       .then((res: any) => {
+        setControlUser(res)
         setRedirect(true)
-        setUrl('/')
+        setUrl('/home')
         setLocalstorage('token', res.token)
+
+        const infoUSer: IInfoUser = {
+          Nome: res?.Nome,
+          Email: res?.Email,
+        }
+
+        setLocalstorage('user', infoUSer)
       })
       .catch((error) => {
         toast.error(error?.message)
@@ -106,7 +117,7 @@ export const FormLogin: FC = () => {
           <LinkComponent
             href={'/criar/conta'}
             color={colors.purple[200]}
-            size={'13px'}
+            size={'14px'}
             weight={500}
             title={'Crie uma conta'}
             decoration={false}

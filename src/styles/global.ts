@@ -8,11 +8,13 @@ export const GlobalStyle = createGlobalStyle`
         --dark: #616161;        
         --gray-200: #929292;
         --gray-100: #D9D9D9;
+        --gray-50: #F0F2F5;
+        --green-500: #12A454;
 
         --border-radius-button: 4px;      
         --border-radius-input: 5px;  
 
-        --size-button: 12px;                    
+        --size-button: 13px;                    
 
         --font: "Poppins";        
     }

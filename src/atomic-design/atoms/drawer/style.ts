@@ -21,8 +21,8 @@ export const PrincipalContainer = styled.div<IDrawer>`
     box-shadow: rgba(5, 10, 20, 0.5) 0px -3px 8px 2px;
 
     span {
-      font: 600 17px var(--font);
-      color: var(--gray-200);
+      font: 500 17px var(--font);
+      color: var(--dark);
     }
 
     button {
@@ -35,6 +35,10 @@ export const PrincipalContainer = styled.div<IDrawer>`
 
   .content {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90vh;
   }
 
   @media (max-width: 767px) {

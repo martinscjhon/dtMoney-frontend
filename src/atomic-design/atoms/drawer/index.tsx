@@ -7,6 +7,7 @@ import { IDrawer } from '../../../interfaces/atoms'
 import { ButtonComponent } from '../button'
 import { useControlDrawer } from '../../../context/drawer-context'
 import { Icone } from '../icone'
+import { colors } from '../../../styles/colors'
 
 const DrawerComponent: FC<IDrawer> = ({
   buttonOpenBackground,
@@ -18,6 +19,7 @@ const DrawerComponent: FC<IDrawer> = ({
   iconOrTextOpenDrawer,
   buttonOpenWeight,
   titleDrawer,
+  existButtonCloseDrawer,
 }) => {
   const { controlDrawer, setControlDrawer } = useControlDrawer()
   const [state, setState] = React.useState({
@@ -60,7 +62,21 @@ const DrawerComponent: FC<IDrawer> = ({
             onClick={handleClose}
           />
         </div>
-        <div className="content">{children}</div>
+        <div className="content">
+          {children}
+
+          {existButtonCloseDrawer && (
+            <ButtonComponent
+              backgorund={colors.purple[400]}
+              title={'Fechar'}
+              color={colors.basic._fff}
+              width={'100%'}
+              height={'2.3rem'}
+              weight={600}
+              onClick={handleClose}
+            />
+          )}
+        </div>
       </Box>
     </PrincipalContainer>
   )

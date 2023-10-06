@@ -3,6 +3,7 @@ import { handleIsAuthentication } from '../../../auth/isAuthentication'
 import { Navigate } from 'react-router-dom'
 import { PrincipalContainer } from './style'
 import { Header } from '../../molecules/header'
+import { GroupCardsResume } from '../../organisms/group-cards-resume'
 
 export const HomeTemplate: FC = () => {
   // const { controlUser } = useControlUser()
@@ -27,6 +28,7 @@ export const HomeTemplate: FC = () => {
 
       <PrincipalContainer>
         <Header />
+        <GroupCardsResume />
       </PrincipalContainer>
     </>
   )

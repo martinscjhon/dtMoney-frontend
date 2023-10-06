@@ -19,6 +19,7 @@ export const ContainerHeaderActions: FC = () => {
         buttonOpenBackground={colors.basic._fff}
         titleDrawer={'Cadastrar categoria'}
         buttonOpenWeight={500}
+        existButtonCloseDrawer
       />
       <DrawerComponent
         children={<DrawerRegisterTransation />}
@@ -29,6 +30,7 @@ export const ContainerHeaderActions: FC = () => {
         buttonOpenBackground={colors.purple[500]}
         titleDrawer={'Cadastrar transação'}
         buttonOpenWeight={400}
+        existButtonCloseDrawer
       />
       <DrawerComponent
         children={<DrawerRegisterMenu />}
@@ -37,7 +39,7 @@ export const ContainerHeaderActions: FC = () => {
         buttonOpenHeight={''}
         buttonOpenColor={colors.basic._000}
         buttonOpenBackground={'transparent'}
-        titleDrawer={'Cadastrar transação'}
+        titleDrawer={'Meu perfil'}
         buttonOpenWeight={400}
       />
     </PrincipalContainer>

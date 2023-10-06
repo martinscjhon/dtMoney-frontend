@@ -10,4 +10,5 @@ export interface IDrawer {
   titleDrawer: string
   drawerWidth?: string
   buttonOpenWeight: number
+  existButtonCloseDrawer?: boolean
 }

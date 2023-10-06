@@ -10,6 +10,8 @@ export const GlobalStyle = createGlobalStyle`
         --gray-100: #D9D9D9;
         --gray-50: #F0F2F5;
         --green-500: #12A454;
+        --white: #fff;
+        --purple-600: #431b7d;
 
         --border-radius-button: 4px;      
         --border-radius-input: 5px;  
